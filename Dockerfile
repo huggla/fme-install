@@ -8,4 +8,6 @@ RUN apt-get -q update \
  && echo '#!/bin/bash' > /usr/bin/fme-upgrade \
  && chmod u+x /usr/bin/fme-upgrade
 
+ENV DOWNLOADS_DIR="/downloads"
+
 CMD ["fme-upgrade"]
