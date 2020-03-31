@@ -11,7 +11,7 @@ RUN apt-get -q update \
  && echo 'rm -f "$fmePackage"' >> /usr/bin/fme-upgrade \
  && echo 'wget --no-check-certificate "$FME_DOWNLOAD"' >> /usr/bin/fme-upgrade \
  && echo 'mkdir -p old_installs/$date' >> /usr/bin/fme-upgrade \
- && echo '[ -n "$(ls /opt/fme* 2>/dev/null)" ] && mv --target-directory=old_installs/$date /opt/fme*' >> /usr/bin/fme-upgrade \
+ && echo '[ -e "/opt/fme" ] && mv /opt/fme old_installs/$date' >> /usr/bin/fme-upgrade \
  && echo 'dpkg --install "$fmePackage"' >> /usr/bin/fme-upgrade \
  && chmod u+x /usr/bin/fme-upgrade
 
