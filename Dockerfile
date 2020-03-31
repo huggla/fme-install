@@ -8,7 +8,7 @@ RUN apt-get -q update \
  && echo '#!/bin/bash' > /usr/bin/fme-install \
  && echo 'set -ex' >> /usr/bin/fme-install \
  && echo 'debfile="$(basename ${FME_DOWNLOAD#https:/})"' >> /usr/bin/fme-install \
- && echo 'date="$(date +%F)"' >> /usr/bin/fme-install \
+ && echo 'date="$(date +%Y%m%d-%H.%M)"' >> /usr/bin/fme-install \
  && echo 'rm -f "$debfile"' >> /usr/bin/fme-install \
  && echo 'wget --no-verbose --no-check-certificate "$FME_DOWNLOAD"' >> /usr/bin/fme-install \
  && echo 'mkdir -p old_installs/$date /opt/fme' >> /usr/bin/fme-install \
