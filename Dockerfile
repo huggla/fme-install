@@ -6,7 +6,7 @@ RUN apt-get -q update \
  && apt-get -qy --no-install-recommends install wget \
  && rm -rf /var/lib/apt/lists/* \
  && echo '#!/bin/bash' > /usr/bin/fme-upgrade \
- && echo 'wget -r --no-check-certificate "$FME_DOWNLOAD"' >> /usr/bin/fme-upgrade \
+ && echo 'wget -p --no-check-certificate "$FME_DOWNLOAD"' >> /usr/bin/fme-upgrade \
  && echo 'mkdir -p old_installs' >> /usr/bin/fme-upgrade \
  && echo '[ -n "$(ls /opt/fme*)" ] && mv --target-directory=old_installs /opt/fme*' >> /usr/bin/fme-upgrade \
  && echo 'dpkg --install $(basename ${FME_DOWNLOAD#https:/})' >> /usr/bin/fme-upgrade \
