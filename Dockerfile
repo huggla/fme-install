@@ -13,8 +13,8 @@ RUN apt-get -q update \
  && echo 'wget --no-verbose --no-check-certificate "$FME_DOWNLOAD"' >> /usr/bin/fme-install \
  && echo 'mkdir -p old_installs' >> /usr/bin/fme-install \
  && echo '[ -e "/opt/fme" ] && mv /opt/fme old_installs/$date' >> /usr/bin/fme-install \
- && echo 'package="$(dpkg --field "$debfile" package)"' >> /usr/bin/fme-install \
  && echo 'dpkg --unpack "$debfile"' >> /usr/bin/fme-install \
+ && echo 'package="$(dpkg --field "$debfile" package)"' >> /usr/bin/fme-install \
  && echo 'mv "/opt/$package" /opt/fme' >> /usr/bin/fme-install \
  && chmod u+x /usr/bin/fme-install
 
