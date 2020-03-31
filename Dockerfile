@@ -18,6 +18,7 @@ RUN apt-get -q update \
  && echo 'package="$(dpkg --field "$debfile" package)"' >> /usr/bin/fme-install \
  && echo 'mv --target-directory=/opt/fme /opt/$package/*' >> /usr/bin/fme-install \
  && echo 'rmdir /opt/$package' >> /usr/bin/fme-install \
+ && echo 'rm "$debfile"' >> /usr/bin/fme-install \
  && chmod u+x /usr/bin/fme-install
 
 ENV FME_DOWNLOAD="https://downloads.safe.com/fme/2020/fme-desktop-2020_2020.0.0.1.20202~ubuntu.18.04_amd64.deb"
