@@ -10,7 +10,7 @@ RUN apt-get -q update \
  && echo 'debfile="$(basename ${FME_DOWNLOAD#https:/})"' >> /usr/bin/fme-install \
  && echo 'date="$(date +%F)"' >> /usr/bin/fme-install \
  && echo 'rm -f "$debfile"' >> /usr/bin/fme-install \
- && echo 'wget --no-check-certificate "$FME_DOWNLOAD"' >> /usr/bin/fme-install \
+ && echo 'wget --no-verbose --no-check-certificate "$FME_DOWNLOAD"' >> /usr/bin/fme-install \
  && echo 'mkdir -p old_installs' >> /usr/bin/fme-install \
  && echo '[ -e "/opt/fme" ] && mv /opt/fme old_installs/$date' >> /usr/bin/fme-install \
  && echo 'package="$(dpkg --field "$debfile" package)"' >> /usr/bin/fme-install \
