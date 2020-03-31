@@ -11,7 +11,7 @@ RUN apt-get -q update \
  && echo 'date="$(date +%F)"' >> /usr/bin/fme-install \
  && echo 'rm -f "$debfile"' >> /usr/bin/fme-install \
  && echo 'wget --no-verbose --no-check-certificate "$FME_DOWNLOAD"' >> /usr/bin/fme-install \
- && echo 'mkdir -p old_installs /opt/fme' >> /usr/bin/fme-install \
+ && echo 'mkdir -p old_installs/$date /opt/fme' >> /usr/bin/fme-install \
  && echo '[ -n "$(ls -A "/opt/fme")" ] && mv --target-directory=old_installs/$date /opt/fme/*' >> /usr/bin/fme-install \
  && echo 'dpkg --unpack "$debfile"' >> /usr/bin/fme-install \
  && echo 'package="$(dpkg --field "$debfile" package)"' >> /usr/bin/fme-install \
